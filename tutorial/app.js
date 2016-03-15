@@ -24,7 +24,19 @@ var app = angular.module('store', []);
 			    images: [{
 					 full: "https://rossta.net/assets/images/icon-ruby-2f9d22cf.png",
 					 thumb: "http://www.phidgets.com/wiki/images/thumb/b/ba/Icon-Ruby.png/64px-Icon-Ruby.png"
-					}]
+					}],
+				reviews:[
+						{
+						 stars: 5,
+						 body: "I love this product",
+						 author: "Some guy"
+						},
+						{
+						 stars: 4,
+						 body: "Great product",
+						 author: "Another guy"
+							}
+				]
 			   },
 			   {
 				 name: 'Perla',
