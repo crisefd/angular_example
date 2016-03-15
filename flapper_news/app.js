@@ -1,6 +1,6 @@
 
 (function(){
-	var app = angular.module('flapperNews', ['ui-router']);
+	var app = angular.module('flapperNews', []);
 	app.factory('posts', function(){
 		return{
 			  p : [{title:'Google', link:'www.google.com', upvotes: 0}]
@@ -25,7 +25,7 @@
 				  post.upvotes += 1;
 				};
 	});
-	app.config(function($stateProvider, $urlRouterProvider) {
+	/*app.config(function($stateProvider, $urlRouterProvider) {
 				  $stateProvider.state(
 				  	'home',
 				  	{
@@ -33,5 +33,5 @@
 				     templateUrl: '/home.html',
 				     controller: 'MainCtrl'
 					});
-				})
-	();
+				});*/
+	})();
