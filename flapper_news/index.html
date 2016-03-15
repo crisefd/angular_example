@@ -4,7 +4,7 @@
   <title>Flapper News</title>
   <link href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">
 
-    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.19/angular.min.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.9/angular.min.js"></script>
   <script src="app.js"></script>
   <style> .glyphicon-thumbs-up { cursor:pointer } </style>
 
@@ -19,7 +19,7 @@
       <div ng-repeat="post in posts | orderBy: '-upvotes'">
         <span class="glyphicon glyphicon-thumbs-up"
           ng-click="incrementUpvotes(post)"></span>
-           - upvotes: {{post.upvotes}}
+           {{post.upvotes}}
         <span style="font-size:20px; margin-left:10px;">
           <a ng-show="post.link" href="{{post.link}}">
             {{post.title}}
