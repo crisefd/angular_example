@@ -2,6 +2,7 @@
 <html>
   <head>
     <title>My Angular App!</title>
+    <link href="styles.css" rel="stylesheet">
     <link href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">
     <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.19/angular.min.js"></script>
     <script src="app.js"></script>
@@ -34,10 +35,41 @@
 			<div class="panel" ng-show="panel.isSelected(3)">
 				<h4>Reviews</h4>
 				<blockquote ng-repeat="review in product.reviews">
-					<b>Stars {{review.starts}}</b>
+					<b>Stars {{review.stars}}</b>
 					{{review.body}}
 					<cite>by: {{review.author}}</cite>
 				</blockquote>
+			<div id="formWrapper">
+				<form name="reviewForm" class="form-group" ng-controller="ReviewController as reviewCtrl" ng-submit="reviewForm.$valid && reviewCtrl.addReview(product)" novalidate>
+					<!--<blockquote>
+						<b>Stars: {{reviewCtrl.review.stars}}</b>
+						{{reviewCtrl.review.body}}
+						<cite>by: {{reviewCtrl.review.author}}</cite>
+					</blockquote>-->
+					<select class="form-control" ng-model="reviewCtrl.review.stars" required>
+						<option value="1">
+							1 star
+						</option>
+						<option value="2">
+							2 star
+						</option>
+						<option value="3">
+							3 star
+						</option>
+						<option value="4">
+							4 star
+						</option>
+						<option value="5">
+							5 star
+						</option>
+					</select>
+					<textarea class="form-control" ng-model="reviewCtrl.review.body" required></textarea>
+					<label>by:</label>
+					<input type="email" class="ng-pristine ng-invalid" ng-model="reviewCtrl.review.author" required />
+					<div>reviewForm is {{reviewForm.$valid}}</div>
+					<input type="submit" value="Submit"  ng-disable="reviewForm.$valid"  ng-class="{'btn-success': reviewForm.$valid}"/>
+				</form>
+				</div>
 			</div>
 			</section>
 			

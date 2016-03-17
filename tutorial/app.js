@@ -5,6 +5,16 @@ var app = angular.module('store', []);
 		this.products = gems;
 		});
 	
+	app.controller('ReviewController', function(){
+		this.review = {};
+		
+		this.addReview = function(product){
+			
+				product.reviews.push(this.review);
+				this.review = {};
+		};
+		});
+	
 	app.controller('PanelController', function(){
 		this.tab = 1;
 		this.selectTab = function(setTab){
@@ -47,7 +57,19 @@ var app = angular.module('store', []);
 				  images: [{
 					 full: "http://lemerg.com/data/wallpapers/36/671128.jpg",
 					 thumb: "http://vignette4.wikia.nocookie.net/paradise-bay/images/7/73/Pearl.png/revision/latest?cb=20150909220203"
-					}]
+					}],
+					reviews:[
+						{
+						 stars: 5,
+						 body: "I love this product",
+						 author: "Some guy"
+						},
+						{
+						 stars: 4,
+						 body: "Great product",
+						 author: "Another guy"
+							}
+				]
 			   },
 			   {
 				 name: 'Diamante',
@@ -58,7 +80,20 @@ var app = angular.module('store', []);
 				  images: [{
 					 full: "http://www.shapur.com/wp-content/uploads/2015/08/round-cut-diamond.jpg",
 					 thumb: "http://icons.iconarchive.com/icons/artdesigner/my-secret/128/diamond-icon.png"
-					}]
+					}],
+					reviews:[
+						{
+						 stars: 5,
+						 body: "I love this product",
+						 author: "Some guy"
+						},
+						{
+						 stars: 4,
+						 body: "Great product",
+						 author: "Another guy"
+							}
+				]
+					
 			   }
 			   ]
 })();
