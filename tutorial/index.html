@@ -16,8 +16,8 @@
 				<h1>Gems app</h1>
 		</div>
 		 <div ng-repeat="product in store_ctrl.products">
-			<h1>{{product.name}}</h1>
-			<h1>{{product.price | currency}}</h1>
+			<h1>{{product.name}}
+			<em class="pull-right">{{product.price | currency}}</em></h1>
 			<img ng-src="{{product.images[0].thumb}}"/>
 			<!--<p><h1>{{product.description | uppercase}}</h1></p>-->
 			<section ng-controller="PanelController as panel">
@@ -60,11 +60,11 @@
 							5 star
 						</option>
 					</select>-->
-					<div id="ratingSection" class="form-control" ng-model="reviewCtrl.review.stars" required>
-						<uib-rating ng-model="reviewCtrl.rate" max="reviewCtrl.max"  on-hover="reviewCtrl.hoveringOver(value)" on-leave="reviewCtrl.review.stars = null" titles="['one','two','three']" aria-labelledby="default-rating"></uib-rating>
+					<!--<div id="ratingSection" class="form-control" required>-->
+						<uib-rating class="form-control" ng-model="reviewCtrl.review.stars" max="reviewCtrl.max"  on-hover="reviewCtrl.hoveringOver(value)" ng-click="reviewCtrl.rateOnClick()" titles="['one','two','three']" aria-labelledby="default-rating" required></uib-rating>
     					<span class="label" ng-class="{'label-warning': reviewCtrl.percent<30, 'label-info': reviewCtrl.percent>=30 && reviewCtrl.percent<70, 'label-success': reviewCtrl.percent>=70}" ng-show="reviewCtrl.review.stars">{{reviewCtrl.percent}}%</span>
 
-					</div>
+					<!--</div>-->
 					<textarea class="form-control" ng-model="reviewCtrl.review.body" required></textarea>
 					<label>by:</label>
 					<input type="email" class="ng-pristine ng-invalid" ng-model="reviewCtrl.review.author" required />
@@ -74,10 +74,9 @@
 				</div>
 			</div>
 			</section>
-			
+
 			<button ng-show="product.canPurchase" class="btn btn-primary">Add to chart</button>
 		</div>
     </div>
   </body>
 </html>
-

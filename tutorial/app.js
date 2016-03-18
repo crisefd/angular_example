@@ -4,24 +4,30 @@ var app = angular.module('store', ['ngAnimate', 'ui.bootstrap']);
 	app.controller('StoreController', function(){
 		this.products = gems;
 		});
-	
+
 	app.controller('ReviewController', function(){
 		this.review = {};
 		this.rate = 7;
 		this.max = 10;
 
 		this.hoveringOver = function(value){
-			this.review.stars = value;
+			this.rate = value;
+			console.log("hover " + value);
+			// alert(value);
 			this.percent = 100 * (value / this.max);
 		};
-		
+
+		this.rateOnClick = function(){
+			console.log("click " + this.rate)
+			this.review.stars = this.rate;
+		};
+
 		this.addReview = function(product){
-			
-				product.reviews.push(this.review);
+				product.reviews.push({author: this.review.author, stars: this.review.stars, body: this.review.body});
 				this.review = {};
 		};
 		});
-	
+
 	app.controller('PanelController', function(){
 		this.tab = 1;
 		this.selectTab = function(setTab){
@@ -41,9 +47,9 @@ var app = angular.module('store', ['ngAnimate', 'ui.bootstrap']);
 			this.percent = 100 * (value / this.max);
 		};
 	});
-		
+
 	var gems = [{
-			    name: 'Ruby', 
+			    name: 'Ruby',
 			    price: 3,
 			    description: 'Un ruby de color rojo',
 			    canPurchase: true,
@@ -110,7 +116,7 @@ var app = angular.module('store', ['ngAnimate', 'ui.bootstrap']);
 						 author: "Another guy"
 							}
 				]
-					
+
 			   }
 			   ]
 })();
