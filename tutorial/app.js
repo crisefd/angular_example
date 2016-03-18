@@ -1,5 +1,5 @@
 (function(){
-var app = angular.module('store', []);
+var app = angular.module('store', ['ngAnimate', 'ui.bootstrap']);
 
 	app.controller('StoreController', function(){
 		this.products = gems;
@@ -7,6 +7,13 @@ var app = angular.module('store', []);
 	
 	app.controller('ReviewController', function(){
 		this.review = {};
+		this.rate = 7;
+		this.max = 10;
+
+		this.hoveringOver = function(value){
+			this.review.stars = value;
+			this.percent = 100 * (value / this.max);
+		};
 		
 		this.addReview = function(product){
 			
@@ -24,6 +31,16 @@ var app = angular.module('store', []);
 			return this.tab === checkTab;
 		}
 		});
+
+	app.controller('RatingController', function(){
+		this.rate = 7;
+		this.max = 10;
+
+		this.hoveringOver = function(value){
+			this.overStar = value;
+			this.percent = 100 * (value / this.max);
+		};
+	});
 		
 	var gems = [{
 			    name: 'Ruby', 

@@ -8,7 +8,7 @@
 }
 
 #formWrapper{
-	width: 200px;
+	width: 300px;
 	padding: 10px;
 	border: 1px dotted lightgray;
 	margin-left: 10px;
@@ -17,3 +17,5 @@
 #formWrapper input ,textarea, select{
 	margin-bottom: 5px;
 }
+
+
