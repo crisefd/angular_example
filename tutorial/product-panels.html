@@ -1,0 +1,54 @@
+<section>
+<ul class="nav nav-pills">
+					<li ng-class="{active:tab === 1}"><a align="justify" href ng-click="panel.selectTab(1)">Description</a></li>
+					<li ng-class="{active:tab === 2}"><a align="justify" href ng-click="panel.selectTab(2)">Specs</a></li>
+					<li ng-class="{active:tab === 3}"><a align="justify" href ng-click="panel.selectTab(3)">Reviews</a></li>
+				</ul>
+			<div class="panel" ng-show="panel.isSelected(1)">
+				<h4>Description</h4>
+				<p>{{product.description}}</p>
+			</div>
+			<div class="panel" ng-show="panel.isSelected(2)">
+				<h4>Specs</h4>
+				<blockquote>None yet</blockquote>
+			</div>
+			<div class="panel" ng-show="panel.isSelected(3)">
+				<h4>Reviews</h4>
+				<blockquote ng-repeat="review in product.reviews">
+					<b>Stars {{review.stars}}</b>
+					{{review.body}}
+					<cite>by: {{review.author}}</cite>
+				</blockquote>
+			<div id="formWrapper">
+				<form class="form-group" ng-controller="ReviewController as reviewCtrl" ng-submit="reviewForm.$valid && reviewCtrl.addReview(product)" novalidate>
+					<!--<select class="form-control" ng-model="reviewCtrl.review.stars" required>
+						<option value="1">
+							1 star
+						</option>
+						<option value="2">
+							2 star
+						</option>
+						<option value="3">
+							3 star
+						</option>
+						<option value="4">
+							4 star
+						</option>
+						<option value="5">
+							5 star
+						</option>
+					</select>-->
+					<!--<div id="ratingSection" class="form-control" required>-->
+						<uib-rating class="form-control" ng-model="reviewCtrl.review.stars" max="reviewCtrl.max"  on-hover="reviewCtrl.hoveringOver(value)" ng-click="reviewCtrl.rateOnClick()" titles="['one','two','three']" aria-labelledby="default-rating" required></uib-rating>
+    					<span class="label" ng-class="{'label-warning': reviewCtrl.percent<30, 'label-info': reviewCtrl.percent>=30 && reviewCtrl.percent<70, 'label-success': reviewCtrl.percent>=70}" ng-show="reviewCtrl.review.stars">{{reviewCtrl.percent}}%</span>
+
+					<!--</div>-->
+					<textarea class="form-control" ng-model="reviewCtrl.review.body" required></textarea>
+					<label>by:</label>
+					<input type="email" class="ng-pristine ng-invalid" ng-model="reviewCtrl.review.author" required />
+					<div>reviewForm is {{reviewForm.$valid}}</div>
+					<input type="submit" class="btn btn-default" value="Submit"  ng-disabled="!reviewForm.$valid"  ng-class="{'btn-success': reviewForm.$valid}"/>
+				</form>
+				</div>
+			</div>
+			</section>

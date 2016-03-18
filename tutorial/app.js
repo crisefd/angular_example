@@ -1,6 +1,31 @@
 (function(){
 var app = angular.module('store', ['ngAnimate', 'ui.bootstrap']);
 
+	app.directive('productTitle', function(){
+		return{
+			restrict: 'E',
+			templateUrl: 'product-title.html'
+		};
+	});
+
+	app.directive('productPanels', function(){
+		return{
+			restrict: 'E',
+			templateUrl: 'product-panels.html',
+			controller: function(){
+							this.tab = 1;
+							this.selectTab = function(setTab){
+								this.tab = setTab;
+							}
+							this.isSelected = function(checkTab){
+								return this.tab === checkTab;
+							}
+						},
+			controllerAs: 'panel'
+
+		};
+	});
+
 	app.controller('StoreController', function(){
 		this.products = gems;
 		});
@@ -28,7 +53,7 @@ var app = angular.module('store', ['ngAnimate', 'ui.bootstrap']);
 		};
 		});
 
-	app.controller('PanelController', function(){
+	/*app.controller('PanelController', function(){
 		this.tab = 1;
 		this.selectTab = function(setTab){
 			this.tab = setTab;
@@ -36,17 +61,9 @@ var app = angular.module('store', ['ngAnimate', 'ui.bootstrap']);
 		this.isSelected = function(checkTab){
 			return this.tab === checkTab;
 		}
-		});
+		});*/
 
-	app.controller('RatingController', function(){
-		this.rate = 7;
-		this.max = 10;
-
-		this.hoveringOver = function(value){
-			this.overStar = value;
-			this.percent = 100 * (value / this.max);
-		};
-	});
+	
 
 	var gems = [{
 			    name: 'Ruby',
