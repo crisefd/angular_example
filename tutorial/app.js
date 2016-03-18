@@ -51,7 +51,7 @@ var app = angular.module('store', ['ngAnimate', 'ui.bootstrap']);
 	var gems = [{
 			    name: 'Ruby',
 			    price: 3,
-			    description: 'Un ruby de color rojo',
+			    description: 'Lorem ipsum dolor sit amet, vitae eruditi sanctus ad mea. Ipsum placerat interpretaris per ut, ei unum legendos sed. Delectus accusata ut vel, per ut case necessitatibus. Eos at unum vero melius, mea eu modo duis tacimates, partiendo scribentur usu no. Alii nostro per ea, ut maluisset temporibus eam.',
 			    canPurchase: true,
 			    soldOut: false,
 			    images: [{
@@ -72,9 +72,9 @@ var app = angular.module('store', ['ngAnimate', 'ui.bootstrap']);
 				]
 			   },
 			   {
-				 name: 'Perla',
+				 name: 'Perl',
 				 price: 2,
-				 description: 'Una perla redonda',
+				 description: 'Lorem ipsum dolor sit amet, est maiorum honestatis ad. An duo ponderum iudicabit, mel et fugit inani, assum fuisset blandit ei mea. Nam tale mucius possit ad, ad praesent forensibus accommodare vim, vim solum nostro ei. Prompta praesent usu et, quo at harum fabellas hendrerit. Pro at oblique commune, vis dicit tempor philosophia an, quo zril appareat assueverit ei.',
 				 canPurchase: true,
 				 soldOut: false,
 				  images: [{
@@ -95,9 +95,9 @@ var app = angular.module('store', ['ngAnimate', 'ui.bootstrap']);
 				]
 			   },
 			   {
-				 name: 'Diamante',
+				 name: 'Diamond',
 				 price: 2,
-				 description: 'Un diamante duro',
+				 description: 'Lorem ipsum dolor sit amet, mei ut porro vituperatoribus. Has ancillae dissentias accommodare ea, tota summo posidonium at sit. Vix agam nominati scriptorem no, et ridens causae constituam sit. Esse malis repudiandae usu ne, viderer moderatius in has. Ad sea facer iudico. Ullum prodesset vel at, ad mei purto impetus commune.',
 				 canPurchase: false,
 				 soldOut: true,
 				  images: [{

@@ -10,21 +10,21 @@
     <script src="app.js"></script>
     <style> .glyphicon-thumbs-up { cursor:pointer } </style>
   </head>
-  <body ng-app="store" ng-controller="StoreController as store_ctrl">
+  <body ng-app="store" ng-controller="StoreController as storeCtrl">
 		<div class="col-md-6 col-md-offset-3">
 			  <div class="page-header">
 				<h1>Gems app</h1>
 		</div>
-		 <div ng-repeat="product in store_ctrl.products">
+		 <div ng-repeat="product in storeCtrl.products">
 			<h1>{{product.name}}
 			<em class="pull-right">{{product.price | currency}}</em></h1>
 			<img ng-src="{{product.images[0].thumb}}"/>
 			<!--<p><h1>{{product.description | uppercase}}</h1></p>-->
 			<section ng-controller="PanelController as panel">
 				<ul class="nav nav-pills">
-					<li ng-class="{active:tab === 1}"><a href ng-click="panel.selectTab(1)">Description</a></li>
-					<li ng-class="{active:tab === 2}"><a href ng-click="panel.selectTab(2)">Specs</a></li>
-					<li ng-class="{active:tab === 3}"><a href ng-click="panel.selectTab(3)">Reviews</a></li>
+					<li ng-class="{active:tab === 1}"><a align="justify" href ng-click="panel.selectTab(1)">Description</a></li>
+					<li ng-class="{active:tab === 2}"><a align="justify" href ng-click="panel.selectTab(2)">Specs</a></li>
+					<li ng-class="{active:tab === 3}"><a align="justify" href ng-click="panel.selectTab(3)">Reviews</a></li>
 				</ul>
 			<div class="panel" ng-show="panel.isSelected(1)">
 				<h4>Description</h4>
@@ -42,7 +42,7 @@
 					<cite>by: {{review.author}}</cite>
 				</blockquote>
 			<div id="formWrapper">
-				<form name="reviewForm" class="form-group" ng-controller="ReviewController as reviewCtrl" ng-submit="reviewForm.$valid && reviewCtrl.addReview(product)" novalidate>
+				<form class="form-group" ng-controller="ReviewController as reviewCtrl" ng-submit="reviewForm.$valid && reviewCtrl.addReview(product)" novalidate>
 					<!--<select class="form-control" ng-model="reviewCtrl.review.stars" required>
 						<option value="1">
 							1 star
