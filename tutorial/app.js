@@ -1,6 +1,7 @@
 (function(){
-var app = angular.module('store', ['ngAnimate', 'ui.bootstrap']);
+var app = angular.module('store', ['store-products', 'ngAnimate', 'ui.bootstrap']);
 
+	/*
 	app.directive('productTitle', function(){
 		return{
 			restrict: 'E',
@@ -24,7 +25,7 @@ var app = angular.module('store', ['ngAnimate', 'ui.bootstrap']);
 			controllerAs: 'panel'
 
 		};
-	});
+	});*/
 
 	app.controller('StoreController', function(){
 		this.products = gems;
