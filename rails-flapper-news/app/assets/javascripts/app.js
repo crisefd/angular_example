@@ -1,10 +1,6 @@
 
-(function(){
-
-	var app = angular.module('flapperNews', ['ui.router', 'templates']);
-
-
-	app.config(function($stateProvider, $urlRouterProvider) {
+angular.module('flapperNews', ['ui.router', 'templates'])
+.config(function($stateProvider, $urlRouterProvider) {
 				  $stateProvider.state(
 				  	'home',
 				  	{
@@ -21,4 +17,3 @@
 				  		controller: 'PostsCtrl'
 				    });
 				});
-	})();
