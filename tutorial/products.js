@@ -1,6 +1,6 @@
 (function(){
 
-	var app = angular.module('store-products', []);
+	var app = angular.module('storeProducts', []);
 
 	app.directive('productTitle', function(){
 			return{
@@ -26,4 +26,5 @@
 
 			};
 		});
+
 })();
