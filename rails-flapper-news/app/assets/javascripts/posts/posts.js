@@ -14,7 +14,7 @@
             o.posts.push(data);
           });
       };
-      o.upvote = function(post){
+      o.upvotePost = function(post){
         return $http.put('/posts/' + post.id + '/upvote.json')
           .success(function(){
             post.upvotes += 1;
@@ -32,7 +32,7 @@
       o.upvoteComment = function(post, comment){
         return $http.put('/posts/' + post.id + '/comments/' + comment.id + '/upvote.json')
           .success(function(data){
-            comment.upvotes += 1
+            comment.upvotes += 1;
           });
 
       };

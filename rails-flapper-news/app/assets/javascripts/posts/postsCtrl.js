@@ -5,15 +5,15 @@
                 'posts',
                 'post',
                 function($scope, posts, post){
-                  $scope.post = post;
+                  $scope.post = post.comments;
                   $scope.addComment = function(){
                     if($scope.body === ''){ return; }
-                    posts.addComments(post.id,
+                    posts.addComment(post.id,
                         {
                           body: $scope.body,
                           author: 'user',
                         }).success(function(comment){
-                          $scope.post.comments.push(comment)
+                          $scope.post.comments.push(comment);
                         });
                     $scope.body = '';
                   };

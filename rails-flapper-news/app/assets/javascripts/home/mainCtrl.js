@@ -17,7 +17,7 @@
                     $scope.link = '';
                   };
                   $scope.incrementUpvotesPost = function(post) {
-                    posts.upvote(post);
+                    posts.upvotePost(post);
                   };
                 }
               ]);
