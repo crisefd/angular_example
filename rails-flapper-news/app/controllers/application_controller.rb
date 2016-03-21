@@ -5,7 +5,15 @@ class ApplicationController < ActionController::Base
 
   respond_to :json
 
+  before_action :configure_permitted_paramenters, if: :devise_controller?
+
   def angular
     render 'layouts/application'
+  end
+
+  private
+
+  def configure_permitted_paramenters
+    devise_parameter_sanitizer.for(:sign_up) << :username
   end
 end
