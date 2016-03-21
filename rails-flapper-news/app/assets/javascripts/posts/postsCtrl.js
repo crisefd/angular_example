@@ -5,7 +5,7 @@
                 '$stateParams',
                 'posts',
                 function($scope, $stateParams, posts){
-                  $scope.post = posts.p[$stateParams.id];
+                  $scope.post = posts.post[$stateParams.id];
                   $scope.addComment = function(){
                     if($scope.body === ''){ return; }
                     $scope.post.comments.push(

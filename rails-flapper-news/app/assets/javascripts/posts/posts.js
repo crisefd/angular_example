@@ -1,7 +1,12 @@
 
   angular.module('flapperNews')
-  .factory('posts', function(){
-    return{
-        p : [{title:'Google', link:'www.google.com', upvotes: 0, comments:[]}]
-      }
-  });
+  .factory('posts', ['$http',function($http){
+    var o = { posts: []};
+      o.getAll = function(){
+        return $http.get('/posts.json')
+          .success(function(data){
+            angular.copy(data, o.posts);
+          });
+      };
+    return o;
+  }]);

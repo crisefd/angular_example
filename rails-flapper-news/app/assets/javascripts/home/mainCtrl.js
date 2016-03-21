@@ -5,7 +5,7 @@
                 'posts',
                 function($scope, posts){
 
-                  $scope.posts = posts.p;
+                  $scope.posts = posts.posts;
 
                   $scope.addPost = function(){
                     if(!$scope.title || $scope.title === '') { return; }
@@ -13,10 +13,7 @@
                               title: $scope.title,
                               link: $scope.link,
                               upvotes: 0,
-                              comments: [
-                                {author: 'Joe', body: 'Cool post!', upvotes: 0},
-                                {author: 'Bob', body: 'Great idea!', upvotes: 1},
-                              ]
+                              comments: []
                             });
                     $scope.title = '';
                     $scope.link = '';
