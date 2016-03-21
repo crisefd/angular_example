@@ -5,21 +5,19 @@
                 'posts',
                 function($scope, posts){
 
-                  $scope.posts = posts.posts;
+                  $scope.posts = posts.posts; // Delete ?
 
                   $scope.addPost = function(){
                     if(!$scope.title || $scope.title === '') { return; }
-                    $scope.posts.push({
+                    posts.create({
                               title: $scope.title,
-                              link: $scope.link,
-                              upvotes: 0,
-                              comments: []
+                              link: $scope.link
                             });
                     $scope.title = '';
                     $scope.link = '';
                   };
                   $scope.incrementUpvotesPost = function(post) {
-                    post.upvotes += 1;
+                    posts.upvote(post);
                   };
                 }
               ]);
