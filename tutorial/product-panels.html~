@@ -21,7 +21,24 @@
 				</blockquote>
 			<div id="formWrapper">
 				<form class="form-group" ng-controller="ReviewController as reviewCtrl" ng-submit="reviewForm.$valid && reviewCtrl.addReview(product)" novalidate>
-					
+					<!--<select class="form-control" ng-model="reviewCtrl.review.stars" required>
+						<option value="1">
+							1 star
+						</option>
+						<option value="2">
+							2 star
+						</option>
+						<option value="3">
+							3 star
+						</option>
+						<option value="4">
+							4 star
+						</option>
+						<option value="5">
+							5 star
+						</option>
+					</select>-->
+					<!--<div id="ratingSection" class="form-control" required>-->
 						<uib-rating class="form-control" ng-model="reviewCtrl.review.stars" max="reviewCtrl.max"  on-hover="reviewCtrl.hoveringOver(value)" ng-click="reviewCtrl.rateOnClick()" titles="['one','two','three']" aria-labelledby="default-rating" required></uib-rating>
     					<span class="label" ng-class="{'label-warning': reviewCtrl.percent<30, 'label-info': reviewCtrl.percent>=30 && reviewCtrl.percent<70, 'label-success': reviewCtrl.percent>=70}" ng-show="reviewCtrl.review.stars">{{reviewCtrl.percent}}%</span>
 
