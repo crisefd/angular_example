@@ -35,5 +35,5 @@
             placeholder="Link"
             ng-model="link"></input>
           </div>
-        <button type="submit" class="btn btn-primary">Post</button>
+        <button ng-disabled="!signedIn()" type="submit" class="btn btn-primary">Post</button>
       </form>
