@@ -1,8 +1,13 @@
 (function(){
 	var app = angular.module('store', ['storeProducts','ngRoute','ngAnimate', 'ui.bootstrap']);
-	app.controller('StoreController', function(){
-		this.products = gems;
-		});
+	app.controller('StoreController', ['$http',function($http){
+		var store = this;
+		store.products = [];
+		$http.get('/~crisefd/angular_example/tutorial/data-products.json')
+			.success(function(data){
+				store.products = data;
+			});
+		}]);
 
 	app.controller('ReviewController', function(){
 		this.review = {};
