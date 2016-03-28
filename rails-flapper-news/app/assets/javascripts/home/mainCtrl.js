@@ -19,11 +19,5 @@
                   $scope.incrementUpvotesPost = function(post) {
                     posts.upvotePost(post);
                   };
-
-                  $scope.hasUserVoted(post){
-                    user_id = $scope.user.id;
-                    answer = false;
-                    return answer;
-                  };
                 }
               ]);
